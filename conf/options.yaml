@@ -1,0 +1,21 @@
+---
+f5:
+  # FQDN, API port and username of the F5 load balancer
+  host: ''
+  port: '443'
+  user: ''
+  # Where are the certs stored?
+  request: '/mgmt/tm/sys/crypto/cert'
+  # This is the date (iso8601 should be fine) to check certs against
+  deadline: ''
+
+certs:
+  # Don't check these
+  exclude:
+    - 'localhost.localdomain'
+    - 'support.f5.com'
+  # We're only concerned with these CAs
+  flagged:
+    - 'GeoTrust Inc.'
+    - 'Symantec Corporation'
+    - 'thawte, Inc.'
